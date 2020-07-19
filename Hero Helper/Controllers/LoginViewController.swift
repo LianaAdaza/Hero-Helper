@@ -20,18 +20,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         view.endEditing(true)
     }
     
-    @IBAction func updateLoginClicked(_ sender: Any) {
-        if usernameTextField.text == "" || passwordTextField.text == "" {
-            showAlert()
-        }
-    }
-    
-    @IBAction func checkLoginClicked(_ sender: Any) {
-        if usernameTextField.text == "" || passwordTextField.text == "" {
-            showAlert()
-        }
-    }
-    
     var state: State? {
         didSet {
             guard let state = state else { return }

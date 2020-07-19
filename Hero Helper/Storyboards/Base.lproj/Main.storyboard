@@ -197,7 +197,6 @@ YOUR STATE</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="checkLoginClicked:" destination="4cp-Ag-3lc" eventType="touchUpInside" id="0IL-pq-uZv"/>
                                     <segue destination="w0B-Zj-9R8" kind="show" id="6MV-l6-A2k"/>
                                 </connections>
                             </button>
@@ -224,7 +223,6 @@ YOUR HOSPITAL</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="updateLoginClicked:" destination="4cp-Ag-3lc" eventType="touchUpInside" id="hPR-DW-0m2"/>
                                     <segue destination="Psb-0L-Nsq" kind="show" id="XPa-Kj-WCo"/>
                                 </connections>
                             </button>
