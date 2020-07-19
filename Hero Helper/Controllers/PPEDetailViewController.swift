@@ -8,23 +8,35 @@
 
 import UIKit
 
-class PPEDetailViewController: UIViewController {
-
+class PPEDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var detailsTableView: UITableView!
+    var allItems = ItemsList.sharedInstance
+    var item: [ItemDetails] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        detailsTableView.delegate = self
+        detailsTableView.dataSource = self
+        item = allItems.getRespirators()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return item.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemdetailsCell", for: indexPath) as! ItemTableViewCell
+        
+        let items = allItems.getRespirators()[indexPath.row]
+        cell.itemName.text = items.name
+        cell.itemDesc.text = items.desc
+        cell.itemImage.image = items.image
+    
+        return cell
+    }
 }
