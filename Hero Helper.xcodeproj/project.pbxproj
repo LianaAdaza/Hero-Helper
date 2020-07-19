@@ -17,6 +17,8 @@
 		5577A49D24C37E8E00635D0E /* PPEDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577A49C24C37E8E00635D0E /* PPEDetailViewController.swift */; };
 		5577A49F24C37EC700635D0E /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577A49E24C37EC700635D0E /* DashboardViewController.swift */; };
 		5577A4A124C37EEC00635D0E /* PPEUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577A4A024C37EEC00635D0E /* PPEUpdateViewController.swift */; };
+		5577A4AB24C3A40800635D0E /* StatesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577A4AA24C3A40800635D0E /* StatesDB.swift */; };
+		5577A4AF24C3A4AF00635D0E /* HospitalsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577A4AE24C3A4AF00635D0E /* HospitalsDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		5577A49C24C37E8E00635D0E /* PPEDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPEDetailViewController.swift; sourceTree = "<group>"; };
 		5577A49E24C37EC700635D0E /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		5577A4A024C37EEC00635D0E /* PPEUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPEUpdateViewController.swift; sourceTree = "<group>"; };
+		5577A4AA24C3A40800635D0E /* StatesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesDB.swift; sourceTree = "<group>"; };
+		5577A4AE24C3A4AF00635D0E /* HospitalsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalsDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 				5577A48124C3791500635D0E /* AppDelegate.swift */,
 				5577A48324C3791500635D0E /* SceneDelegate.swift */,
 				5577A48D24C3791800635D0E /* Assets.xcassets */,
+				5577A4A524C3A36900635D0E /* Models */,
 				5577A4A224C37F3700635D0E /* Controllers */,
 				5577A4A324C37F5C00635D0E /* Storyboards */,
 				5577A49224C3791800635D0E /* Info.plist */,
@@ -93,6 +98,15 @@
 				5577A48F24C3791800635D0E /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5577A4A524C3A36900635D0E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5577A4AA24C3A40800635D0E /* StatesDB.swift */,
+				5577A4AE24C3A4AF00635D0E /* HospitalsDB.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +183,8 @@
 				5577A49D24C37E8E00635D0E /* PPEDetailViewController.swift in Sources */,
 				5577A49F24C37EC700635D0E /* DashboardViewController.swift in Sources */,
 				5577A48C24C3791500635D0E /* Hero_Helper.xcdatamodeld in Sources */,
+				5577A4AB24C3A40800635D0E /* StatesDB.swift in Sources */,
+				5577A4AF24C3A4AF00635D0E /* HospitalsDB.swift in Sources */,
 				5577A48224C3791500635D0E /* AppDelegate.swift in Sources */,
 				5577A48424C3791500635D0E /* SceneDelegate.swift in Sources */,
 				5577A4A124C37EEC00635D0E /* PPEUpdateViewController.swift in Sources */,
