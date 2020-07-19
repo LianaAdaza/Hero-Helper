@@ -11,31 +11,31 @@ import UIKit
 class PPEDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var detailsTableView: UITableView!
-    var allItems = ItemsList.sharedInstance
-    var item: [ItemDetails] = []
+    var itemsList = ItemsList.sharedInstance
+    var items: [ItemDetails] = []
+    var index: Int? {
+        didSet {
+            guard let index = index else { return }
+            items = itemsList.getAll(index: index)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         detailsTableView.delegate = self
         detailsTableView.dataSource = self
-        item = allItems.getRespirators()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return item.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemdetailsCell", for: indexPath) as! ItemTableViewCell
-        
-        let items = allItems.getRespirators()[indexPath.row]
-        cell.itemName.text = items.name
-        cell.itemDesc.text = items.desc
-        cell.itemImage.image = items.image
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemDetailsCell", for: indexPath) as? ItemTableViewCell else { return UITableViewCell() }
+        let item = items[indexPath.row]
+        cell.itemName.text = item.name
+        cell.itemDesc.text = item.desc
+        cell.itemImage.image = item.image
     
         return cell
     }

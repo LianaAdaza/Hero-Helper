@@ -13,6 +13,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var dashboardTableView: UITableView!
     var allSupplies = DashboardList.sharedInstance
     var items: [Supply] = []
+    var selectedItem = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +26,6 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! DashboardTableViewCell
         
@@ -37,6 +34,17 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         itemCell.dashboardImage.image = item.image
         
         return itemCell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        switch identifier {
+            case "showDetails":
+                guard let indexPath = dashboardTableView.indexPathForSelectedRow, let destination = segue.destination as? PPEDetailViewController else { return }
+                destination.index = indexPath.row
+            default:
+                print("unexpected segue identifier")
+        }
     }
     
 }

@@ -28,12 +28,12 @@ final class ItemsList {
     }
     
     var respirators: [ItemDetails] = [
-        ItemDetails(name: "N95 M 1870 Aura", desc: "(1) 3M is not sending replenishments\n(2) Continuing to conserve use of supplies (extended use and reuse where the appropriate and oNLY if training has occurred)", image: UIImage(named: "Concern Green")!),
+        ItemDetails(name: "N95 M 1870 Aura", desc: "(1) 3M is not sending replenishments\n(2) Continuing to conserve use of supplies (extended use and reuse where the appropriate and ONLY if training has occurred)", image: UIImage(named: "Concern Green")!),
         ItemDetails(name: "N95 Halyard Health", desc: "(1) Halyard supply replenishment continues to be favorable/strong", image: UIImage(named: "Concern Green")!),
         ItemDetails(name: "N95 Gerson 1730", desc: "(1) Working with Occupation Health to fit-test staff who are currently using 3M 1870 Aura who may be able to move to a Gerson 1730", image: UIImage(named: "Concern Green")!),
         ItemDetails(name: "N95 1860 - Regular", desc: "(1) Working with Occupation Health to fit-test staff who are currently using 3M 1870 Aura who may be able to move to an 1860 Regular", image: UIImage(named: "Concern Green")!),
         ItemDetails(name: "N95 1860 - Small", desc: "(1) Working with Occupation Health to fit-test staff who are currently using 3M 1870 Aura who may be able to move to an 1860 Small", image: UIImage(named: "Concern Green")!),
-        ItemDetails(name: "P100 Respirator 3M or North", desc: "(1) Demand/need is believed to be beyond inventory on-hand\n(2) Pending prioritized roll-out for specific departments\n(3) Extend use of filters indefinitely until the point resistance is encountered with breathing normally", image: UIImage(named: "Concern Yellow")!),
+        ItemDetails(name: "P100 Respirator 3M", desc: "(1) Demand/need is believed to be beyond inventory on-hand\n(2) Pending prioritized roll-out for specific departments\n(3) Extend use of filters indefinitely until the point resistance is encountered with breathing normally", image: UIImage(named: "Concern Yellow")!),
         ItemDetails(name: "PAPR Maxair System", desc: "(1) Demand/Need for PAPR units is beyond inventory on hand\n(2) Continue to conserve use of supplies (reuse of PAPR lenses)", image: UIImage(named: "Concern Green")!)
     ]
     
@@ -52,9 +52,9 @@ final class ItemsList {
     ]
     
     var eyeProtections: [ItemDetails] = [
-        ItemDetails(name: "Safety Goggles Sellstrom", desc: "(1) Continue to conserve supplies (reuse where possible\n(2) Supplier not meeting allocation targets", image: UIImage(named: "Concern Green")!),
-        ItemDetails(name: "Safety Goggles Tidi Products", desc: "(1) Continue to conserve supplies (reuse where possible\n(2) Supplier not meeting allocation targets", image: UIImage(named: "Concern Green")!),
-        ItemDetails(name: "Safety Goggles Kerma Medical", desc: "(1) Continue to conserve supplies (reuse where possible\n(2) Supplier not meeting allocation targets", image: UIImage(named: "Concern Green")!)
+        ItemDetails(name: "Goggles Sellstrom", desc: "(1) Continue to conserve supplies (reuse where possible\n(2) Supplier not meeting allocation targets", image: UIImage(named: "Concern Green")!),
+        ItemDetails(name: "Goggles Tidi Products", desc: "(1) Continue to conserve supplies (reuse where possible\n(2) Supplier not meeting allocation targets", image: UIImage(named: "Concern Green")!),
+        ItemDetails(name: "Goggles Kerma Medical", desc: "(1) Continue to conserve supplies (reuse where possible\n(2) Supplier not meeting allocation targets", image: UIImage(named: "Concern Green")!)
     ]
     
     var gowns: [ItemDetails] = [
@@ -84,5 +84,17 @@ final class ItemsList {
     
     func getGloves() -> [ItemDetails] {
         return gloves
+    }
+    
+    func getAll(index: Int) -> [ItemDetails] {
+        var allItems = [[ItemDetails]]()
+        allItems.append(getRespirators())
+        allItems.append(getMasks())
+        allItems.append(getGloves())
+        allItems.append(getFacialProtections())
+        allItems.append(getEyeProtections())
+        allItems.append(getGowns())
+        
+        return allItems[index]
     }
 }
