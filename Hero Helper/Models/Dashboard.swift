@@ -30,8 +30,8 @@ final class DashboardList {
         Supply(title: "Masks", image: UIImage(named: "Concern Green")!),
         Supply(title: "Gloves", image: UIImage(named: "Concern Green")!),
         Supply(title: "Facial Protection", image: UIImage(named: "Concern Green")!),
-        Supply(title: "Gowns", image: UIImage(named: "Concern Green")!),
-        Supply(title: "Gloves", image: UIImage(named: "Concern Green")!)
+        Supply(title: "Eye Protection", image: UIImage(named: "Concern Green")!),
+        Supply(title: "Gowns", image: UIImage(named: "Concern Green")!)
     ]
     
     func getSupplies() -> [Supply] {

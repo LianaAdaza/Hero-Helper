@@ -42,6 +42,10 @@ final class ItemsList {
         ItemDetails(name: "Surgical Mask", desc: "(1) Replenishment is strong however demand for mask use is increasing as (restarting OR and Procedural cases)\n(2) Continue to conserve use of supplies where appropriate", image: UIImage(named: "Concern Green")!)
     ]
     
+    var gloves: [ItemDetails] = [
+        ItemDetails(name: "Non-Sterile Exam", desc: "(1) Malaysia manufacturers may be impacted by extension of country’s shelter in place order", image: UIImage(named: "Concern Green")!)
+    ]
+    
     var facialProtections: [ItemDetails] = [
         ItemDetails(name: "Face Shield", desc: "(1) Demand is uncertain and usage is increasing\n(2) Continue to conserve supplies (reuse protocol)", image: UIImage(named: "Concern Green")!),
         ItemDetails(name: "Nike Face Shield", desc: "(1) Demand is uncertain and usage is increasing\n(2) Continue to conserve supplies (reuse protocol)", image: UIImage(named: "Concern Green")!)
@@ -56,10 +60,6 @@ final class ItemsList {
     var gowns: [ItemDetails] = [
         ItemDetails(name: "Isolation", desc: "(1) Raw material shortage globally\n(2) Continue to conserve use of supplies\n(3) Please order when necessary\n(4) Tie back may vary", image: UIImage(named: "Concern Green")!),
         ItemDetails(name: "Impervious", desc: "(1) Raw material shortage globally\n(2) Continue to conserve use of supplies", image: UIImage(named: "Concern Green")!)
-    ]
-    
-    var gloves: [ItemDetails] = [
-        ItemDetails(name: "Non-Sterile Exam", desc: "(1) Malaysia manufacturers may be impacted by extension of country’s shelter in place order", image: UIImage(named: "Concern Green")!)
     ]
     
     func getRespirators() -> [ItemDetails] {

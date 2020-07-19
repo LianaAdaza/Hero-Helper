@@ -30,13 +30,13 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! DashboardTableViewCell
+        let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! DashboardTableViewCell
         
         let item = allSupplies.getSupplies()[indexPath.row]
-        cell.dashboardItem.text = item.title
-        cell.dashboardImage.image = item.image
+        itemCell.dashboardItem.text = item.title
+        itemCell.dashboardImage.image = item.image
         
-        return cell
+        return itemCell
     }
     
 }
