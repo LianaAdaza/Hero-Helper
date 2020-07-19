@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard View Controller-->
+        <!--PPE & Critical Supplies Dashboard-->
         <scene sceneID="Mfi-jJ-X23">
             <objects>
                 <viewController id="9gN-fr-cM1" customClass="DashboardViewController" customModule="Hero_Helper" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="5Wk-NO-D5u"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fw8-TR-efU"/>
+                    <navigationItem key="navigationItem" title="PPE &amp; Critical Supplies Dashboard" id="fw8-TR-efU">
+                        <barButtonItem key="rightBarButtonItem" title="Key" image="info.circle" catalog="system" id="55x-eX-IyZ">
+                            <connections>
+                                <segue destination="rCn-Rh-buE" kind="popoverPresentation" identifier="showLegend" popoverAnchorBarButtonItem="55x-eX-IyZ" id="5sH-cg-UQR">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mM-oV-teE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,6 +133,79 @@
             </objects>
             <point key="canvasLocation" x="982.60869565217399" y="113.83928571428571"/>
         </scene>
+        <!--Key Table View Controller-->
+        <scene sceneID="tcG-3i-dcF">
+            <objects>
+                <tableViewController storyboardIdentifier="KeyTableViewController" id="rCn-Rh-buE" customClass="KeyTableViewController" customModule="Hero_Helper" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="165" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PjR-Ko-M5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="keyCell" rowHeight="165" id="88J-QQ-bWM" customClass="KeyTableViewCell" customModule="Hero_Helper" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="165"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="88J-QQ-bWM" id="qPn-p1-cfA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="165"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Imminent Red" translatesAutoresizingMaskIntoConstraints="NO" id="9gr-pI-78t">
+                                            <rect key="frame" x="20" y="11" width="110" height="110"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="9gr-pI-78t" secondAttribute="height" multiplier="1:1" id="ahl-ee-gb8"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conservation measures may apply (if replenishment is uncertain) and ONLY if conservation training has occurred" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUH-W2-CbD">
+                                            <rect key="frame" x="138" y="61" width="256" height="90"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTf-0U-uEY">
+                                            <rect key="frame" x="138" y="11" width="256" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="zLx-LJ-h1x"/>
+                                            </constraints>
+                                            <string key="text">Stock outage imminent
+&lt; 7 days stock on hand</string>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bTf-0U-uEY" firstAttribute="leading" secondItem="9gr-pI-78t" secondAttribute="trailing" constant="8" id="2OY-3Y-YB7"/>
+                                        <constraint firstItem="9gr-pI-78t" firstAttribute="top" secondItem="qPn-p1-cfA" secondAttribute="topMargin" id="4tF-Gd-K8w"/>
+                                        <constraint firstItem="bTf-0U-uEY" firstAttribute="leading" secondItem="jUH-W2-CbD" secondAttribute="leading" id="AXd-4O-Nqn"/>
+                                        <constraint firstItem="bTf-0U-uEY" firstAttribute="trailing" secondItem="qPn-p1-cfA" secondAttribute="trailingMargin" id="PNq-Kw-Pho"/>
+                                        <constraint firstItem="9gr-pI-78t" firstAttribute="bottom" secondItem="qPn-p1-cfA" secondAttribute="bottomMargin" constant="-33" id="dqb-ks-rua"/>
+                                        <constraint firstItem="9gr-pI-78t" firstAttribute="leading" secondItem="qPn-p1-cfA" secondAttribute="leadingMargin" id="fKH-JW-Uck"/>
+                                        <constraint firstItem="jUH-W2-CbD" firstAttribute="trailing" secondItem="qPn-p1-cfA" secondAttribute="trailingMargin" id="fa0-G2-kwG"/>
+                                        <constraint firstItem="bTf-0U-uEY" firstAttribute="top" secondItem="9gr-pI-78t" secondAttribute="top" id="fkG-sW-7lT"/>
+                                        <constraint firstItem="jUH-W2-CbD" firstAttribute="top" secondItem="bTf-0U-uEY" secondAttribute="bottom" id="qnS-l0-tIC"/>
+                                        <constraint firstItem="jUH-W2-CbD" firstAttribute="bottom" secondItem="9gr-pI-78t" secondAttribute="bottom" constant="30" id="tCJ-In-AgI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="keyDescription" destination="jUH-W2-CbD" id="qGX-Dv-hez"/>
+                                    <outlet property="keyImageView" destination="9gr-pI-78t" id="zqs-li-OkR"/>
+                                    <outlet property="keyTitle" destination="bTf-0U-uEY" id="OJ3-d3-nAX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rCn-Rh-buE" id="G1x-Ib-lOy"/>
+                            <outlet property="delegate" destination="rCn-Rh-buE" id="7pV-Wh-aNu"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="keysTableView" destination="PjR-Ko-M5Z" id="cqp-JU-22F"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I2d-kd-hAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2728.985507246377" y="-550.44642857142856"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="Icd-ym-C2i">
             <objects>
@@ -138,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yL-7F-wJm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671.0144927536235" y="113.83928571428571"/>
+            <point key="canvasLocation" x="2729" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lxv-rO-WjJ">
@@ -159,4 +240,8 @@
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Imminent Red" width="100" height="100"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>
