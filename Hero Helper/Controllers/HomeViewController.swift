@@ -6,19 +6,12 @@
 //  Copyright © 2020 Liana Adaza. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var statePicker: UIPickerView!
     @IBOutlet weak var userSelectedState: UILabel!
-    @IBOutlet weak var hospitalPicker: UIPickerView!
-    @IBOutlet weak var userselectedHospital: UILabel! {
-        didSet {
-            userselectedHospital.adjustsFontSizeToFitWidth = true
-        }
-    }
     
     let allStates = StatesDB.sharedInstance
     var states: [State] = []
@@ -30,38 +23,24 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 0 {
-            return states.count
-        }
-        return hospitals.count
+        return states.count
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 0 {
-            return "\(states[row].stateName) (\(states[row].stateAbbreviation))"
-        }
-        return hospitals[row].NAME
+        return "\(states[row].stateName) (\(states[row].stateAbbreviation))"
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == 0 {
-            userSelectedState.text = states[row].stateName
-//            getHospitalsInState(state: states[row].stateAbbreviation)
-//            hospitalPicker.isHidden = false
-            hospitalPicker.reloadAllComponents()
-        }
-        userselectedHospital.text = hospitals[row].NAME
+        userSelectedState.text = states[row].stateName
+        selectedState = states[row]
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         statePicker.dataSource = self
         statePicker.delegate = self
-        hospitalPicker.dataSource = self
-        hospitalPicker.delegate = self
         
         states = allStates.getStates()
-//        hospitalPicker.isHidden = true
         getHospitals()
     }
     
@@ -89,35 +68,14 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         task.resume()
     }
     
-    func getHospitalsInState(state: String) {
-        guard let url = URL(string: "https://services1.arcgis.com/Hp6G80Pky0om7QvQ/arcgis/rest/services/Hospitals_1/FeatureServer/0/query?where=STATE%20%3D%20'\(state)'&outFields=NAME,STATE&returnGeometry=false&outSR=4326&f=json") else { return }
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            if let data = data {
-                self.hospitals = self.parseJsonData(data: data)
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        switch identifier {
+            case "showLogin":
+                guard let destination = segue.destination as? LoginViewController else { return }
+                destination.state = selectedState
+            default:
+                print("unexpected segue identifier")
         }
-        
-        task.resume()
-    }
-    
-    func parseJsonData(data: Data) -> [Hospital] {
-        var sHospitals = [Hospital]()
-        let decoder = JSONDecoder()
-
-        do {
-            let stateHospitals = try decoder.decode(Hospitals.self, from: data)
-            sHospitals = stateHospitals.features
-            print(sHospitals[0])
-        } catch {
-            print(error)
-        }
-        
-        return sHospitals
     }
 }

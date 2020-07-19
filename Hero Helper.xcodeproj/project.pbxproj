@@ -10,6 +10,7 @@
 		2E72411224C3A72A003EC11F /* KeyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E72411124C3A72A003EC11F /* KeyTableViewController.swift */; };
 		2E72411424C3A8CD003EC11F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E72411324C3A8CD003EC11F /* Key.swift */; };
 		2E72411724C3B112003EC11F /* KeyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E72411624C3B112003EC11F /* KeyTableViewCell.swift */; };
+		2E932DFE24C4B05A002A4AEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E932DFD24C4B05A002A4AEE /* LoginViewController.swift */; };
 		55351D4124C3D1D600AD9714 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55351D4024C3D1D600AD9714 /* Dashboard.swift */; };
 		55351D4324C3DD1600AD9714 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55351D4224C3DD1600AD9714 /* DashboardTableViewCell.swift */; };
 		55351D4724C3F7A900AD9714 /* ItemDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55351D4624C3F7A900AD9714 /* ItemDetails.swift */; };
@@ -32,6 +33,7 @@
 		2E72411124C3A72A003EC11F /* KeyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTableViewController.swift; sourceTree = "<group>"; };
 		2E72411324C3A8CD003EC11F /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		2E72411624C3B112003EC11F /* KeyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTableViewCell.swift; sourceTree = "<group>"; };
+		2E932DFD24C4B05A002A4AEE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		55351D4024C3D1D600AD9714 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		55351D4224C3DD1600AD9714 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		55351D4624C3F7A900AD9714 /* ItemDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetails.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				5577A49A24C37E6500635D0E /* HomeViewController.swift */,
+				2E932DFD24C4B05A002A4AEE /* LoginViewController.swift */,
 				5577A49E24C37EC700635D0E /* DashboardViewController.swift */,
 				2E72411124C3A72A003EC11F /* KeyTableViewController.swift */,
 				5577A49C24C37E8E00635D0E /* PPEDetailViewController.swift */,
@@ -222,6 +225,7 @@
 				5577A48224C3791500635D0E /* AppDelegate.swift in Sources */,
 				5577A48424C3791500635D0E /* SceneDelegate.swift in Sources */,
 				5577A4A124C37EEC00635D0E /* PPEUpdateViewController.swift in Sources */,
+				2E932DFE24C4B05A002A4AEE /* LoginViewController.swift in Sources */,
 				55351D4724C3F7A900AD9714 /* ItemDetails.swift in Sources */,
 				5577A49B24C37E6500635D0E /* HomeViewController.swift in Sources */,
 				2E72411224C3A72A003EC11F /* KeyTableViewController.swift in Sources */,
