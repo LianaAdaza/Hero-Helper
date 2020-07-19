@@ -42,6 +42,9 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             case "showDetails":
                 guard let indexPath = dashboardTableView.indexPathForSelectedRow, let destination = segue.destination as? PPEDetailViewController else { return }
                 destination.index = indexPath.row
+            case "showLegend":
+                guard let destination = segue.destination as? KeyTableViewController else { return }
+                destination.previousVC = self
             default:
                 print("unexpected segue identifier")
         }

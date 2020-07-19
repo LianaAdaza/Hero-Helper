@@ -8,23 +8,49 @@
 
 import UIKit
 
-class PPEUpdateViewController: UIViewController {
-
+class PPEUpdateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var adminTableView: UITableView!
+    var allSupplies = DashboardList.sharedInstance
+    var supplies: [Supply] = []
+    var selectedItem = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        adminTableView.delegate = self
+        adminTableView.dataSource = self
+        supplies = allSupplies.getSupplies()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        adminTableView.reloadData()
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return supplies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? DashboardTableViewCell else { return UITableViewCell() }
+        
+        let supply = allSupplies.getSupplies()[indexPath.row]
+        itemCell.dashboardItem.text = supply.title
+        itemCell.dashboardImage.image = supply.image
+        
+        return itemCell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        switch identifier {
+            case "updateStatus":
+                guard let indexPath = adminTableView.indexPathForSelectedRow, let destination = segue.destination as? KeyTableViewController else { return }
+                let supply = supplies[indexPath.row]
+                destination.previousVC = self
+                destination.supply = supply
+            default:
+                print("unexpected segue identifier")
+        }
+    }
 }

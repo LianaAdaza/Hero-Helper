@@ -11,7 +11,6 @@ import UIKit
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var statePicker: UIPickerView!
-    @IBOutlet weak var userSelectedState: UILabel!
     
     let allStates = StatesDB.sharedInstance
     var states: [State] = []
@@ -31,7 +30,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        userSelectedState.text = states[row].stateName
         selectedState = states[row]
     }
 

@@ -11,9 +11,26 @@ import UIKit
 class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var hospitalPicker: UIPickerView!
-    @IBOutlet weak var userSelectedHospital: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var updateLogInBtn: UIButton!
+    @IBOutlet weak var checkLogInBtn: UIButton!
+    
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func updateLoginClicked(_ sender: Any) {
+        if usernameTextField.text == "" || passwordTextField.text == "" {
+            showAlert()
+        }
+    }
+    
+    @IBAction func checkLoginClicked(_ sender: Any) {
+        if usernameTextField.text == "" || passwordTextField.text == "" {
+            showAlert()
+        }
+    }
     
     var state: State? {
         didSet {
@@ -30,9 +47,14 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
+    @objc func textFieldDidChange(_ textField : UITextField) {
+        showCorrectLoginBtn(user: textField.text ?? "")
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         self.view.endEditing(true)
-        return false
+        return true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -47,11 +69,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return hospitals[row].NAME
     }
 
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        userSelectedHospital.text = hospitals[row].NAME
-        userSelectedHospital.adjustsFontSizeToFitWidth = true
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         hospitalPicker.dataSource = self
@@ -63,6 +80,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hospitalPicker.reloadAllComponents()
+        usernameTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
     
     func getHospitalsInState(state: String) {
@@ -88,5 +106,34 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         task.resume()
+    }
+    
+    func showCorrectLoginBtn(user: String) {
+        if user == "admin" {
+            checkLogInBtn.isEnabled = false
+            updateLogInBtn.isEnabled = true
+        } else {
+            checkLogInBtn.isEnabled = true
+            updateLogInBtn.isEnabled = false
+        }
+    }
+    
+    func showAlert() {
+        let ac = UIAlertController(title: "The username/password fields cannot be empty.",
+                                   message: "Please completely fill out both fields.",
+                                   preferredStyle: .alert)
+        
+        let closeAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        ac.addAction(closeAction)
+        
+        present(ac, animated: true, completion: nil)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if usernameTextField.text == "" || passwordTextField.text == "" {
+            showAlert()
+            return false
+        }
+        return true
     }
 }
