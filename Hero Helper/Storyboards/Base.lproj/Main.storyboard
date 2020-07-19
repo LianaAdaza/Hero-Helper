@@ -35,38 +35,38 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="354" height="150"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Concern Green" translatesAutoresizingMaskIntoConstraints="NO" id="Z9n-9S-cA8">
-                                                            <rect key="frame" x="17" y="33" width="85" height="85"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="Z9n-9S-cA8" secondAttribute="height" multiplier="1:1" id="zdV-5G-C8k"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hss-he-dlV">
-                                                            <rect key="frame" x="110" y="33" width="224" height="106"/>
+                                                            <rect key="frame" x="118" y="33" width="216" height="106"/>
                                                             <string key="text">(1) 3M is not sending replenishments
 (2) Continuing to conserve use of supplies (extended use and reuse where the appropriate and ONLY if training has occurred)</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N95 3 M 1870 Aura" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSp-oY-y4F">
-                                                            <rect key="frame" x="110" y="16" width="224" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N95 3M 1870 Aura" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSp-oY-y4F">
+                                                            <rect key="frame" x="118" y="16" width="216" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="N95 3M" translatesAutoresizingMaskIntoConstraints="NO" id="Z9n-9S-cA8">
+                                                            <rect key="frame" x="20" y="25" width="90" height="100"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Z9n-9S-cA8" secondAttribute="height" multiplier="9:10" id="CM9-RK-CpJ"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="hss-he-dlV" secondAttribute="trailing" constant="20" id="0HB-jQ-kWs"/>
                                                         <constraint firstItem="hss-he-dlV" firstAttribute="top" secondItem="SSp-oY-y4F" secondAttribute="topMargin" constant="9" id="0O4-Gd-h7o"/>
-                                                        <constraint firstItem="Z9n-9S-cA8" firstAttribute="leading" secondItem="gVQ-1k-SdN" secondAttribute="leadingMargin" constant="-3" id="8uq-Co-kkM"/>
+                                                        <constraint firstItem="Z9n-9S-cA8" firstAttribute="top" secondItem="gVQ-1k-SdN" secondAttribute="top" constant="25" id="6TL-ai-KVN"/>
+                                                        <constraint firstItem="Z9n-9S-cA8" firstAttribute="leading" secondItem="gVQ-1k-SdN" secondAttribute="leadingMargin" id="8uq-Co-kkM"/>
                                                         <constraint firstItem="SSp-oY-y4F" firstAttribute="leading" secondItem="Z9n-9S-cA8" secondAttribute="trailing" constant="8" id="AVy-rk-XqH"/>
                                                         <constraint firstItem="SSp-oY-y4F" firstAttribute="top" secondItem="gVQ-1k-SdN" secondAttribute="topMargin" constant="5" id="Fa5-yw-gjl"/>
-                                                        <constraint firstItem="Z9n-9S-cA8" firstAttribute="top" secondItem="gVQ-1k-SdN" secondAttribute="topMargin" constant="22" id="Ghp-fT-ERH"/>
                                                         <constraint firstItem="hss-he-dlV" firstAttribute="leading" secondItem="Z9n-9S-cA8" secondAttribute="trailing" constant="8" id="QbO-oQ-hm7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Z9n-9S-cA8" secondAttribute="bottom" constant="25" id="Qy5-6K-zAu"/>
                                                         <constraint firstAttribute="bottom" secondItem="hss-he-dlV" secondAttribute="bottom" constant="11" id="cvB-XZ-TOn"/>
                                                         <constraint firstAttribute="trailing" secondItem="SSp-oY-y4F" secondAttribute="trailing" constant="20" id="ebM-Kg-k8c"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="Z9n-9S-cA8" secondAttribute="bottom" constant="21" id="kvp-8k-4UD"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -395,9 +395,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Concern Green" width="100" height="100"/>
         <image name="Concern Yellow" width="100" height="100"/>
         <image name="Imminent Red" width="100" height="100"/>
+        <image name="N95 3M" width="150" height="160"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>
