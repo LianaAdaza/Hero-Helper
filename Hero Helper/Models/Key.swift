@@ -21,7 +21,6 @@ class Key: NSObject {
 }
 
 final class Legend {
-    
     static let sharedInstance = Legend ()
     
     private var keys: [Key] = [
